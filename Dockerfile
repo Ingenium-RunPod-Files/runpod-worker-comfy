@@ -83,6 +83,12 @@ RUN if [ "$MODEL_TYPE" = "sdxl" ]; then \
       wget -O models/clip/clip_l.safetensors https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors && \
       wget -O models/clip/t5xxl_fp8_e4m3fn.safetensors https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn.safetensors && \
       wget --header="Authorization: Bearer ${HUGGINGFACE_ACCESS_TOKEN}" -O models/vae/ae.safetensors https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/ae.safetensors; \
+    elif [ "$MODEL_TYPE" = "chroma" ]; then \
+      wget -O models/checkpoints/chroma-unlocked-v37.safetensors https://huggingface.co/lodestones/Chroma/resolve/main/chroma-unlocked-v37.safetensors && \
+      wget -O models/checkpoints/chroma-unlocked-v37-detail-calibrated.safetensors https://huggingface.co/lodestones/Chroma/resolve/main/chroma-unlocked-v37-detail-calibrated.safetensors && \
+      wget -O models/vae/ae.safetensors https://huggingface.co/lodestones/Chroma/resolve/main/ae.safetensors && \
+      wget -O models/clip/t5xxl_fp16.safetensors https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp16.safetensors && \
+      wget -O models/clip/t5xxl_fp8_e4m3fn.safetensors https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn.safetensors; \
     fi
 
 # Stage 3: Final image
